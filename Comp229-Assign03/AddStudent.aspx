@@ -26,7 +26,7 @@
              <tr>
                  <td class="WidthForColunms">Enrollment Date:</td>
                  <td>
-                 <asp:TextBox ID="txtBxEnrDate" runat="server" ></asp:TextBox>
+                 <asp:TextBox ID="txtBxEnrDate" TextMode="Date" runat="server" ></asp:TextBox> <!-- TODO: Pre-populate with today's date. --> 
                  </td>
              </tr>
              </table>
