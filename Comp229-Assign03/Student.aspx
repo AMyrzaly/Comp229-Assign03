@@ -20,10 +20,11 @@
     <asp:GridView ID="CourseList" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="CourseID">
         <Columns>
-            <asp:BoundField DataField="CourseID" HeaderText="CourseID" InsertVisible="False" ReadOnly="True" SortExpression="CourseID" />
-            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-            <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits" />
-            <asp:BoundField DataField="DepartmentID" HeaderText="DepartmentID" SortExpression="DepartmentID" />
+            <asp:HyperLinkField DataTextField="Title" HeaderText="Course ID" Visible="true" DataNavigateUrlFields="CourseID"
+                             DataNavigateUrlFormatString="Course.aspx?CourseID={0}" />
+            <asp:BoundField DataField="Title" HeaderText="Title" Visible="true"/>
+            <asp:BoundField DataField="Credits" HeaderText="Credits" Visible="true"/>
+            <asp:BoundField DataField="DepartmentID" HeaderText="DepartmentID" Visible="true"/>
         </Columns>
     </asp:GridView>
 
