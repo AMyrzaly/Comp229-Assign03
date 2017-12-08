@@ -30,14 +30,25 @@ namespace Comp229_Assign03
             try
             {
                 conn.Open();
-                SqlDataReader reader = comm.ExecuteReader(); // Can pass any object bookList.DataSource = reader; // Start data dinding | Calls whille loop that goes though this data source 
-                //studentsList.DataSource = reader;
-                //studentsList.DataBind();
+                SqlDataReader reader = comm.ExecuteReader();
+                StudentsGridView.DataSource = reader;
+                StudentsGridView.DataBind();
                 reader.Close();
             }
             finally
             {
                 conn.Close();
+            }
+        }
+
+
+        protected void StudentsList_ItemCommand(object source, GridView e)
+        {
+            // Which button was clicked?
+            if (e.ID == "StudentGridView")
+            {
+                Session["currentStudentID"] = e.ID.ToString();
+                Response.Redirect("student.aspx");
             }
         }
     }

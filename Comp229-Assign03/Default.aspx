@@ -4,7 +4,8 @@
 
     <h1>Student list</h1>
 
-    <asp:GridView ID="StudentsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="datSourSelAllStu" AllowPaging="True" AllowSorting="True">
+    <asp:GridView ID="StudentsGridView" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="StudentID" AllowSorting="True">
         <Columns>
             <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student ID" Visible="true" DataNavigateUrlFields="StudentID"
                 DataNavigateUrlFormatString="Student.aspx?StudentID={0}" />
@@ -13,8 +14,6 @@
             <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date (M/D/Y)" SortExpression="EnrollmentDate" />
         </Columns>
     </asp:GridView>
-
-    <asp:SqlDataSource ID="datSourSelAllStu" runat="server" ConnectionString="<%$ ConnectionStrings:Assginment_03 %>" SelectCommand="SELECT * FROM [Students]"></asp:SqlDataSource>
 
     <br />
     <a id="AddStudent" href="AddStudent.aspx">Add New Student</a>

@@ -4,16 +4,27 @@
 
     <h1>Student Details</h1>
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="SqlDataSource1">
+    <asp:GridView ID="ViewStudent" runat="server" AutoGenerateColumns="False"
+        DataKeyNames="StudentID">
         <Columns>
             <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student Id" Visible="true" DataNavigateUrlFields="StudentID"
-                             DataNavigateUrlFormatString="update.aspx?StudentID={0}" />
-            <asp:BoundField DataField="LastName" HeaderText="LastName" Visible="true" />
-            <asp:BoundField DataField="FirstMidName" HeaderText="FirstMidName" Visible="true" />
-            <asp:BoundField DataField="EnrollmentDate" HeaderText="EnrollmentDate" Visible="true" />
+                DataNavigateUrlFormatString="Update.aspx?StudentID={0}" />
+            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+            <asp:BoundField DataField="FirstMidName" HeaderText="First Name" />
+            <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date (M/D/Y)" SortExpression="EnrollmentDate" />
+            <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i>Delete"
+                ShowDeleteButton="true" ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm" />
         </Columns>
     </asp:GridView>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Assginment_03 %>" SelectCommand="SELECT * FROM [Students]"></asp:SqlDataSource>
+    <asp:GridView ID="CourseList" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="CourseID">
+        <Columns>
+            <asp:BoundField DataField="CourseID" HeaderText="CourseID" InsertVisible="False" ReadOnly="True" SortExpression="CourseID" />
+            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+            <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits" />
+            <asp:BoundField DataField="DepartmentID" HeaderText="DepartmentID" SortExpression="DepartmentID" />
+        </Columns>
+    </asp:GridView>
 
 </asp:Content>
