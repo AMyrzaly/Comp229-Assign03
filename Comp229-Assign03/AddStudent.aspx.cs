@@ -29,11 +29,11 @@ namespace Comp229_Assign03
                 comm = new SqlCommand("INSERT INTO Students (FirstMidName,LastName,EnrollmentDate) Values(@FirstName, @LastName, @EnrollmentDate)", conn);
 
                 comm.Parameters.Add("@FirstName", System.Data.SqlDbType.VarChar, 50);
-                comm.Parameters["@FirstName"].Value = txtBxFname.Text;
+                comm.Parameters["@FirstName"].Value = Fname.Text;
                 comm.Parameters.Add("@LastName", System.Data.SqlDbType.VarChar, 50);
-                comm.Parameters["@LastName"].Value = txtBxLname.Text;
+                comm.Parameters["@LastName"].Value = Lname.Text;
                 comm.Parameters.Add("@EnrollmentDate", System.Data.SqlDbType.Date);
-                comm.Parameters["@EnrollmentDate"].Value = txtBxEnrDate.Text;
+                comm.Parameters["@EnrollmentDate"].Value = Date.Text;
             try
             {
                 conn.Open();
@@ -50,12 +50,12 @@ namespace Comp229_Assign03
                
                 conn.Close();
             }
-            Response.Redirect("default.aspx");
+            Response.Redirect("Default.aspx");
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("default.aspx");
+            Response.Redirect("Default.aspx");
         }
     }
 }

@@ -1,14 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Addtocourse.aspx.cs" Inherits="Comp229_Assign03.Addtocourse" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Here you can enroll student to a course!</h1>
-        <h2>Following steps are must.</h2>
-        <ul id="AddCourseul">
-            <li>Enter the Existance studentID</li>
-            <li>Enter the Existance CourseID</li>
-        </ul>
+    <center>
+    <br /><br /><br />
+
+    <h1>You can enroll student to the course!</h1>
+        <h2>You have to...</h2>
+            Enter the Existance studentID
+            Enter the Existance CourseID
         <hr />
-        <table id="paddingTable">
+        <table>
             <tr>
                 <td class="WidthForColunms">StudentID:</td>
                 <td>
@@ -35,5 +37,7 @@
 
         <br />
         <br />
+
+            </center>
 
 </asp:Content>

@@ -20,7 +20,7 @@ namespace Comp229_Assign03
             int CourseID = Convert.ToInt32(Request.QueryString["CourseID"]);
             string connectionString = ConfigurationManager.ConnectionStrings["Assginment_03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand comm = new SqlCommand("SELECT * FROM Students WHERE StudentID IN (SELECT StudentID FROM Enrollments WHERE CourseID=@CourseID)", conn);
+            SqlCommand comm = new SqlCommand("select * from Students where StudentID in (select StudentID from Enrollments where CourseID=@CourseID)", conn);
             comm.Parameters.AddWithValue("@CourseID", CourseID);
             try
             {
@@ -41,9 +41,9 @@ namespace Comp229_Assign03
             int StudentID = Convert.ToInt32(Request.QueryString["StudentID"]);
             string connectionString = ConfigurationManager.ConnectionStrings["Assginment_03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand comm = new SqlCommand("DELETE FROM Enrollments WHERE StudentID = @StudentID", conn);
+            SqlCommand comm = new SqlCommand("delete from Enrollments where StudentID = @StudentID", conn);
             comm.Parameters.AddWithValue("@StudentID", StudentID);
-            comm = new SqlCommand("DELETE FROM Students WHERE StudentID = @StudentID", conn);
+            comm = new SqlCommand("delete from Students where StudentID = @StudentID", conn);
             comm.Parameters.AddWithValue("@StudentID", StudentID);
             try
             {

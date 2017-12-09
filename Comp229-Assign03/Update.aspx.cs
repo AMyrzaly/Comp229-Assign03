@@ -22,7 +22,6 @@ namespace Comp229_Assign03
         private void UpdateBindList()
         {
             int StudentID = Convert.ToInt32(Request.QueryString["StudentID"]);
-            String LName = Convert.ToString(txtBxFname.Text);
             string connectionString = ConfigurationManager.ConnectionStrings["Assginment_03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand comm = new SqlCommand("SELECT * FROM Students where (StudentID)=(@StudentID)", conn);
@@ -33,15 +32,39 @@ namespace Comp229_Assign03
                 SqlDataReader reader = comm.ExecuteReader();
                 if (reader.Read())
                 {
-                    txtBxLname.Text += reader["LastName"];
-                    txtBxFname.Text += reader["FirstMidName"];
-                    txtBxEnrDate.Text += reader["EnrollmentDate"];
+                    Lname.Text += reader["LastName"];
+                    Fname.Text += reader["FirstMidName"];
+                    Date.Text += reader["EnrollmentDate"];
                 }
                 reader.Close();
             }
             finally
             {
                 conn.Close();
+            }
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int StudentID = Convert.ToInt32(Request.QueryString["StudentID"]);
+            String LName = Convert.ToString(Fname.Text);
+            string connectionString = ConfigurationManager.ConnectionStrings["Assginment_03"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand comm = new SqlCommand("update [Students] set LastName=@LastName,FirstMidName=@FirstName,EnrollmentDate=@EnrollmentDate where StudentID=@StudentID", conn);
+            comm.Parameters.AddWithValue("@LastName", Lname.Text);
+            comm.Parameters.AddWithValue("@FirstName", Fname.Text);
+            comm.Parameters.AddWithValue("@EnrollmentDate", Date.Text);
+            comm.Parameters.AddWithValue("@StudentID", StudentID);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = comm.ExecuteReader();
+                reader.Close();
+            }
+            finally
+            {
+                conn.Close();
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -63,37 +86,13 @@ namespace Comp229_Assign03
             catch (Exception) { }
             finally
             {
-                Response.Redirect("default.aspx");
+                Response.Redirect("Default.aspx");
             }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("default.aspx");
-        }
-
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-            int StudentID = Convert.ToInt32(Request.QueryString["StudentID"]);
-            String LName = Convert.ToString(txtBxFname.Text);
-            string connectionString = ConfigurationManager.ConnectionStrings["Assginment_03"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand comm = new SqlCommand("UPDATE [Students] SET LastName=@LastName,FirstMidName=@FirstName,EnrollmentDate=@EnrollmentDate WHERE StudentID=@StudentID", conn);
-            comm.Parameters.AddWithValue("@LastName", txtBxLname.Text);
-            comm.Parameters.AddWithValue("@FirstName", txtBxFname.Text);
-            comm.Parameters.AddWithValue("@EnrollmentDate", txtBxEnrDate.Text);
-            comm.Parameters.AddWithValue("@StudentID", StudentID);
-            try
-            {
-                conn.Open();
-                SqlDataReader reader = comm.ExecuteReader();
-                reader.Close();
-            }
-            finally
-            {
-                conn.Close();
-                Response.Redirect("default.aspx");
-            }
+            Response.Redirect("Default.aspx");
         }
     }
 }

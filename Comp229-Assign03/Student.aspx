@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <center>
+    <br /><br /><br />
+
     <h1>Student Details</h1>
 
     <asp:GridView ID="ViewStudent" runat="server" AutoGenerateColumns="False"
@@ -30,5 +33,6 @@
             <asp:BoundField DataField="DepartmentID" HeaderText="DepartmentID" Visible="true"/>
         </Columns>
     </asp:GridView>
+            </center>
 
 </asp:Content>

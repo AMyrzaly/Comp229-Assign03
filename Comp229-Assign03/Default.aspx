@@ -2,20 +2,23 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Student list</h1>
+    <center>
+        <br /><br /><br />
+    <h1>Student list of University</h1>
 
     <asp:GridView ID="StudentsGridView" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="StudentID" AllowSorting="True">
         <Columns>
             <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student ID" Visible="true" DataNavigateUrlFields="StudentID"
                 DataNavigateUrlFormatString="Student.aspx?StudentID={0}" />
-            <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
-            <asp:BoundField DataField="FirstMidName" HeaderText="First Name" SortExpression="FirstMidName" />
-            <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date (M/D/Y)" SortExpression="EnrollmentDate" />
+            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+            <asp:BoundField DataField="FirstMidName" HeaderText="First Name" />
+            <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date (M/D/Y)" />
         </Columns>
     </asp:GridView>
-
+        <br />
     <br />
-    <a id="AddStudent" href="AddStudent.aspx">Add New Student</a>
+    <a id="AddStudent" style="border:solid;border-radius:4px;background-color:lightblue;color:white;padding:15px;border-color:black;font-size:15px" href="AddStudent.aspx">Add New Student</a>
+    </center>
 
 </asp:Content>

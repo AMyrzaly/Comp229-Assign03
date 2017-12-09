@@ -13,31 +13,31 @@ namespace Comp229_Assign03 {
     public partial class Update {
         
         /// <summary>
-        /// txtBxFname control.
+        /// Fname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBxFname;
+        protected global::System.Web.UI.WebControls.TextBox Fname;
         
         /// <summary>
-        /// txtBxLname control.
+        /// Lname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBxLname;
+        protected global::System.Web.UI.WebControls.TextBox Lname;
         
         /// <summary>
-        /// txtBxEnrDate control.
+        /// Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBxEnrDate;
+        protected global::System.Web.UI.WebControls.TextBox Date;
         
         /// <summary>
         /// btnCancel control.
