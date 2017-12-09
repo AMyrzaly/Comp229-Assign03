@@ -7,7 +7,7 @@
     <asp:GridView ID="ViewStudent" runat="server" AutoGenerateColumns="False"
         DataKeyNames="StudentID">
         <Columns>
-            <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student Id" Visible="true" DataNavigateUrlFields="StudentID"
+            <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student ID" Visible="true" DataNavigateUrlFields="StudentID"
                 DataNavigateUrlFormatString="Update.aspx?StudentID={0}" />
             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
             <asp:BoundField DataField="FirstMidName" HeaderText="First Name" />
@@ -16,6 +16,9 @@
                 ShowDeleteButton="true" ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm" />
         </Columns>
     </asp:GridView>
+
+    <br />
+    <br />
 
     <asp:GridView ID="CourseList" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="CourseID">
